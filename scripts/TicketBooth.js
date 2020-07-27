@@ -5,15 +5,25 @@ const eventHub = document.querySelector("#state-fair")
 export const TicketBooth = () => {
     contentTarget.innerHTML = `
         <div class="ticketBooth">
-           <button id="rideTicket">Ride Ticket</button>
+            <button id="rideTicket">Ride Ticket</button>
+            <button id="foodTicket">Food Ticket</button>
+            <button id="gameTicket">Game Ticket</button>
+            <button id="sideshowTicket">Sideshow Ticket</button>
+            <button id="packageTicket">Full Package Ticket</button>
         </div>
     `
 }
 
-contentTarget.addEventListener("click", clickEvent => {
-    if (clickEvent.target.id === "rideTicket") {
-        console.log("Ride ticket clicked!")
-        const rideEvent = new CustomEvent("rideTicketPurchased")
-        eventHub.dispatchEvent(rideEvent)
+eventHub.addEventListener("click", clickEvent => {
+    switch (clickEvent.target.id) {
+        case "rideTicket":
+            const rideEvent = new CustomEvent("rideTicketPurchased")
+            eventHub.dispatchEvent(rideEvent)
+            break;
+        case "foodTicket":
+            const foodTicket = new CustomEvent("foodTicketPurchased")
+            eventHub.dispatchEvent(foodTicket)
+        default:
+            break;
     }
 })
