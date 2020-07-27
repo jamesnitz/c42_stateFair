@@ -23,6 +23,19 @@ eventHub.addEventListener("click", clickEvent => {
         case "foodTicket":
             const foodTicket = new CustomEvent("foodTicketPurchased")
             eventHub.dispatchEvent(foodTicket)
+            break;
+        case "gameTicket":
+            const gameTicket = new CustomEvent("gameTicketPurchased")
+            eventHub.dispatchEvent(gameTicket)
+            break;
+        case "sideshowTicket":
+            const sideshowTicket = new CustomEvent("sideshowTicketPurchased")
+            eventHub.dispatchEvent(sideshowTicket)
+            break;
+        case "packageTicket":
+            const packageTicket = new CustomEvent("packageTicketPurchased")
+            eventHub.dispatchEvent(packageTicket)
+            break;
         default:
             break;
     }
